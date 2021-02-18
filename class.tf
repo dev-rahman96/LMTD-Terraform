@@ -38,5 +38,14 @@ resource "aws_subnet" "first-subnet" {
   }
 }
 
+# 3. Create an s3 bucket
+resource "aws_s3_bucket" "bucket-1" {
+  bucket = "my-first-lmtd-bucket"
+  acl    = "private"
 
+  tags = {
+    Name        = "bucket from terraform"
+    Environment = "Dev"
+  }
+}
 
