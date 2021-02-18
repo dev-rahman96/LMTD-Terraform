@@ -27,3 +27,16 @@ resource "aws_vpc" "Creating_our_first_VPC" {
   }
 }
 
+# 2. Create a private subnet
+resource "aws_subnet" "first-subnet" {
+  vpc_id     = aws_vpc.Creating_our_first_VPC.id
+  cidr_block = "10.0.1.0/24"
+  map_public_ip_on_launch = false
+
+  tags = {
+    Name = "Private subnet"
+  }
+}
+
+
+
